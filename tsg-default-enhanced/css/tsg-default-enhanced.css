@@ -1,0 +1,877 @@
+/** TSG-DEFAULT-ENHANCED Theme *******************************************************
+ * theme        Default-Enhanced theme for com_vikevents v1.9
+ * description  A simple responsive redesign and build replicating the orignal default
+ * description  event layout utilising the installed framework default styling and layout
+ * compat       Twitter Bootstrap v2.3.2, Twitter BootStrap v3.3.7
+ * compat       YooTheme UIKit v2.26.4, JoomlaBamboo ZenGrid
+ * author       RussW (TheStyleGuyz, a division of hotmango, web and print. Australia.)
+ * copyright    Copyright (c) 2016, The Style Guyz. All rights reserved.
+ * @license     Dual GNU/GPL2 & TSG:PL1 - Proprietary License
+ * @license     TSG:PLv1 - TSG custom functions & linked Cascading Style Sheets
+ * @license     TSG:PLv1 - http://www.thestyleguyz.com/licenses/
+ * website      http://www.thestyleguyz.com/ (a division of http://www.hotmango.me)
+ * github       https://github.com/TheStyleGuyzTeam
+ * support      http://www.thestyleguyz.com/support/
+ *************************************************************************************/
+
+#tsg-vevde-list,
+#tsg-vevde-timeline {
+  cursor: default;
+  margin-bottom: 25px;
+  text-rendering: optimizeLegibility;
+  text-shadow: 0 0 0 #fff, 0 0 1px transparent;
+  -webkit-font-smoothing: antialiased !important;
+     -moz-font-smoothing: antialiased !important;
+     -moz-osx-font-smoothing: grayscale;
+}
+
+/** EVENT(S) LISTING *****************************************************************/
+/** default containers ***************************************************************/
+#tsg-vevde-list .tsg-event-container {
+  margin-bottom: 5px !important;
+}
+#tsg-vevde-list .tsg-event-row-container {
+  background: #EEEEEE;
+  border-bottom: 1px solid #DDD;
+  border-right: 1px solid #DDD;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px !important;
+  padding: 10px !important;
+  -webkit-transition: all 0.4s ease-in-out;
+     -moz-transition: all 0.4s ease-in-out;
+       -o-transition: all 0.4s ease-in-out;
+          transition: all 0.4s ease-in-out;
+}
+#tsg-vevde-list .tsg-event-row-container,
+#tsg-vevde-list .tsg-event-row-container.square {
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+       -o-border-radius: 0px;
+          border-radius: 0px;
+}
+#tsg-vevde-list .tsg-event-row-container.rounded {
+  -webkit-border-radius: 20px;
+     -moz-border-radius: 20px;
+       -o-border-radius: 20px;
+          border-radius: 20px;
+}
+#tsg-vevde-list .tsg-event-row-container.radius {
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+       -o-border-radius: 6px;
+          border-radius: 6px;
+}
+#tsg-vevde-list .tsg-event-datetime-container {
+  color: #FFFFFF;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+#tsg-vevde-list .tsg-event-image-container {}
+#tsg-vevde-list .tsg-event-detail-container {
+  padding: 5px;
+}
+
+
+/** container :hover beviours ********************************************************/
+#tsg-vevde-list .tsg-event-container:hover .tsg-event-row-container {
+  border-bottom: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  box-shadow: 2px 2px 12px 2px #DDD;
+}
+#tsg-vevde-list .tsg-event-container:hover .tsg-event-image-container img {}
+
+
+/** column layouts *******************************************************************/
+#tsg-vevde-list .tsg-event-datetime-column {
+  display: flex;
+  padding: 0px;
+  margin-bottom: 0px;
+  min-width: auto;
+}
+#tsg-vevde-list .tsg-event-image-column {
+  display: flex;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+#tsg-vevde-list .tsg-event-detail-column {
+  margin-bottom: 0px;
+}
+
+
+/** event details ********************************************************************/
+/* date & time */
+#tsg-vevde-list .tsg-event-date { /* if $showtime = 1 */
+  background: #0085b2 url('../../../images/calendar_listevent.png') no-repeat center 15px;
+  display: flex;
+  min-height: 70px;
+  text-align: center;
+  width: 100%;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+       -o-border-radius: 0px;
+          border-radius: 0px;
+}
+#tsg-vevde-list .tsg-event-row-container.rounded .tsg-event-datetime-container .tsg-event-date {
+  -webkit-border-top-left-radius: 10px;
+     -moz-border-radius-topleft: 10px;
+          border-top-left-radius: 10px;
+}
+#tsg-vevde-list .tsg-event-row-container.radius .tsg-event-datetime-container .tsg-event-date {
+  -webkit-border-top-left-radius: 4px;
+     -moz-border-radius-topleft: 4px;
+          border-top-left-radius: 4px;
+}
+@media (max-width: 765px) {
+  #tsg-vevde-list .tsg-event-row-container.rounded .tsg-event-datetime-container .tsg-event-date {
+  -webkit-border-top-right-radius: 10px;
+     -moz-border-radius-topright: 10px;
+          border-top-right-radius: 10px;
+  }
+  #tsg-vevde-list .tsg-event-row-container.radius .tsg-event-datetime-container .tsg-event-date {
+  -webkit-border-top-right-radius: 4px;
+     -moz-border-radius-topright: 4px;
+          border-top-right-radius: 4px;
+  }
+}
+
+
+
+#tsg-vevde-list .tsg-event-date span {
+  font-size: 14px;
+  font-weight: bold;
+  margin: auto;
+  padding-top: 28px;
+}
+#tsg-vevde-list .tsg-event-date-only { /* if $showtime = 0 */
+  background: #0085B2 url('../../../images/calendar_listevent.png') no-repeat center 37%;
+  display: flex;
+  min-height: 70px;
+  text-align: center;
+  width: 100%;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+       -o-border-radius: 0px;
+          border-radius: 0px;
+}
+#tsg-vevde-list .tsg-event-date-only span {
+  font-size: 14px;
+  font-weight: bold;
+  margin: auto;
+  padding-top: 28px;
+}
+@media (min-width: 765px) {
+  #tsg-vevde-list .tsg-event-row-container.rounded .tsg-event-datetime-container .tsg-event-time {
+    -webkit-border-bottom-left-radius: 10px;
+       -moz-border-radius-bottomleft: 10px;
+            border-bottom-left-radius: 10px;
+  }
+  #tsg-vevde-list .tsg-event-row-container.radius .tsg-event-datetime-container .tsg-event-time {
+    -webkit-border-bottom-left-radius: 4px;
+       -moz-border-radius-bottomleft: 4px;
+            border-bottom-left-radius: 4px;
+  }
+}
+
+#tsg-vevde-list .tsg-event-time {
+  background: #AAAAAA;
+  display: flex;
+  min-height: 70px;
+  text-align: center;
+  width: 100%;
+}
+#tsg-vevde-list .tsg-event-time span {
+  font-size: 14px;
+  font-weight: normal;
+  margin: auto;
+}
+/** image */
+#tsg-vevde-list .tsg-event-image-container img {
+  min-height: 150px;
+  overflow: hidden;
+  width: 100%;
+}
+/* title */
+#tsg-vevde-list h3.tsg-event-title {
+  font-size: 18px;
+  font-weight: 500;
+  line-height:1.2em;
+  margin-bottom: 7px;
+}
+/* location */
+#tsg-vevde-list .tsg-event-location {
+  background: url('../../../images/open_map_blue.png') no-repeat left center;
+  border-bottom: 1px dotted #CCC;
+  font-size: 12px;
+  font-weight: 200;
+  margin: 0 0 5px;
+  padding-bottom: 3px;
+  padding-left: 20px;
+  text-transform: uppercase;
+}
+/* small description */
+#tsg-vevde-list p.tsg-event-smalldesc {
+  font-size: 13px;
+  line-height: 1.1em; /* if changed, also update tsg-smalldesc-truncate-* */
+  margin: 5px 0 3px 0;
+}
+/* event link */
+#tsg-vevde-list a.tsg-event-moreinfo {
+  font-size: 11px;
+  float: right;
+  font-weight: 200;
+  letter-spacing: normal;
+  padding: 0;
+  text-transform: uppercase;
+}
+#tsg-vevde-list span.tsg-alert-soldout {
+  font-size: 11px;
+  line-height: 1.4;
+  float: right;
+  margin: 0px;
+  min-width: 100px;
+  padding: 0px 10px;
+  text-align: center;
+}
+
+
+
+/** EVENT(S) TIMELINE ****************************************************************/
+/** containers **/
+#tsg-vevde-timeline .tsg-timeline-container {
+  display: flex;
+/*  flex-wrap: wrap; */
+  margin-bottom: 35px!important;
+}
+@media (max-width: 768px) {
+  #tsg-vevde-timeline .tsg-timeline-container {
+    flex-wrap: wrap;
+  }
+}
+#tsg-vevde-timeline .tsg-event-title-container {
+  border-left: 1px solid #CCC;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 15px;
+}
+
+
+/** columns **/
+#tsg-vevde-timeline .tsg-timeline-date-column {
+  min-width: 72px;
+  padding-left: 0px;
+  text-align: left;
+}
+@media (max-width: 768px) {
+  #tsg-vevde-timeline .tsg-timeline-date-column {
+    text-align: center;
+  }
+}
+#tsg-vevde-timeline .tsg-timeline-detail-column {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0px;
+}
+
+
+/** timeline date selection **********************************************************/
+#tsg-vevde-timeline .tsg-vev-horiz-timeline {
+  background: #FCFCFC;
+  border: 1px solid #DDD;
+  padding: 10px;
+  width: auto;
+  -webkit-transition: all 0.4s ease-in-out;
+     -moz-transition: all 0.4s ease-in-out;
+       -o-transition: all 0.4s ease-in-out;
+          transition: all 0.4s ease-in-out;
+}
+
+
+/** event details ********************************************************************/
+#tsg-vevde-timeline .tsg-timeline-detail-container {
+  background: #EEEEEE;
+  border-bottom: 1px solid #DDD;
+  border-right: 1px solid #DDD;
+  margin: 5px 0px 10px 0px!important;
+  padding: 15px 20px 5px 20px;
+  position:relative;
+  -webkit-border-radius: 48px;
+     -moz-border-radius: 48px;
+       -o-border-radius: 48px;
+          border-radius: 48px;
+  -webkit-transition: all 0.4s ease-in-out;
+     -moz-transition: all 0.4s ease-in-out;
+       -o-transition: all 0.4s ease-in-out;
+          transition: all 0.4s ease-in-out;
+}
+#tsg-vevde-timeline .tsg-timeline-detail-container.pastEvent {
+  background: #FFFFFF;
+  border: 1px solid #DDD;
+  color: #999999;
+}
+#tsg-vevde-timeline .tsg-timeline-detail-container.square {
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+       -o-border-radius: 0px;
+          border-radius: 0px;
+}
+#tsg-vevde-timeline .tsg-timeline-detail-container.rounded {
+  -webkit-border-radius: 48px;
+     -moz-border-radius: 48px;
+       -o-border-radius: 48px;
+          border-radius: 48px;
+}
+#tsg-vevde-timeline .tsg-timeline-detail-container.radius {
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+       -o-border-radius: 5px;
+          border-radius: 5px;
+}
+#tsg-vevde-timeline .tsg-vev-horiz-timeline:hover,
+#tsg-vevde-timeline .tsg-timeline-detail-container:hover {
+  border-bottom: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  box-shadow: 1px 2px 10px 2px #DDD;
+}
+#tsg-vevde-timeline .tsg-vev-horiz-timeline-contbottom {
+  text-align: center;
+}
+#tsg-vevde-timeline .tsg-vev-horiz-timeline-mday {
+  background-color: #FFFFFF;
+  color: #0085B2;
+  font-size: 12px;
+  line-height: 30px;
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+#tsg-vevde-timeline .tsg-vev-horiz-timeline-mday:hover {
+  background: #0085B2;
+  border-color: #8BC0CC;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+#tsg-vevde-timeline .tsg-vev-horiz-timeline-monyear {
+  min-width: 95px;
+}
+#tsg-vevde-timeline .tsg-vev-timeline-monyear {
+  border-bottom: 1px solid #DDD;
+  min-height: 72px;
+  width: auto;
+}
+#tsg-vevde-timeline .tsg-vev-timeline-mon {
+  display: inline-block;
+  font-size: 32px;
+  line-height: 68px;
+  margin: 0px;
+  vertical-align: baseline;
+}
+#tsg-vevde-timeline .tsg-vev-timeline-year {
+  display: inline-block;
+  line-height: 52px;
+  margin: 0px 0px 0px 5px;
+  vertical-align: bottom;
+}
+@media (max-width:360px) {
+  #tsg-vevde-timeline .tsg-vev-timeline-mon {
+    font-size: 28px;
+    line-height: 42px;
+  }
+  #tsg-vevde-timeline .tsg-vev-timeline-year {
+    display: block;
+    font-size: 16px;
+    line-height: 16px;
+  }
+}
+#tsg-vevde-timeline .tsg-vev-timeline-ev-mday {
+  float: none;
+  height: 72px;
+  padding: 0px;
+  position: relative;
+  width: 72px;
+  margin-bottom: 10px;
+  z-index: 2!important;
+}
+#tsg-vevde-timeline .tsg-vev-timeline-evcontainer:after {
+  height: 96%;
+  left: 36px;
+}
+#tsg-vevde-timeline .tsg-vev-timeline-ev-mday-inner {
+  height: 64px;
+  margin: 0px;
+  padding: 0px;
+  width: 64px;
+}
+#tsg-vevde-timeline .tsg-vev-timeline-ev-mday-inner.pastEvent {
+  background: #DDD;
+  border-color: #CCC;
+  color: #999!important;
+}
+#tsg-vevde-timeline .tsg-vev-timeline-ev-mday-inner.rounded {
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+       -o-border-radius: 50%;
+          border-radius: 50%;
+}
+#tsg-vevde-timeline .tsg-vev-timeline-ev-mday-inner.square {
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+       -o-border-radius: 0px;
+          border-radius: 0px;
+}
+#tsg-vevde-timeline .tsg-vev-timeline-ev-mday-inner.radius {
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+       -o-border-radius: 5px;
+          border-radius: 5px;
+}
+#tsg-vevde-timeline .tsg-vev-timeline-ev-mday-inner .tsg-vev-timeline-day-sp {
+  line-height: 31px;
+  margin-top: 8px;
+  vertical-align: bottom;
+}
+#tsg-vevde-timeline .tsg-vev-timeline-ev-mday-inner .tsg-vev-timeline-weekday-sp {
+  line-height: 18px;
+}
+#tsg-vevde-timeline .tsg-vev-timeline-ev-mday-inner.pastEvent .tsg-vev-timeline-day-sp,
+#tsg-vevde-timeline .tsg-vev-timeline-ev-mday-inner.pastEvent .tsg-vev-timeline-weekday-sp {
+  color: #999999;
+}
+#tsg-vevde-timeline .tsg-vev-timeline-ev-time {
+  border: none;
+  display: flex;
+  float: left;
+  font-size: 15px;
+  line-height: 50px;
+  padding: 0px;
+  margin-right: 10px;
+  vertical-align: middle;
+  text-align: center;
+  width: 80px;
+}
+@media (max-width: 768px) {
+  #tsg-vevde-timeline .tsg-vev-timeline-ev-time {
+    font-size: 13px;
+    line-height: 50px;
+    margin-right: 5px;
+    width: 60px;
+  }
+}
+#tsg-vevde-timeline h3.tsg-event-title {
+  font-size: 17px;
+  font-weight: 500;
+  line-height:1.1em;
+  margin: 0px;
+  text-transform: none;
+}
+@media (max-width: 768px) {
+  #tsg-vevde-timeline h3.tsg-event-title {
+    font-size: 15px;
+  }
+}
+/* location */
+#tsg-vevde-timeline .tsg-event-location {
+  background: url('../../../images/open_map_blue.png') no-repeat left center;
+  font-size: 11px;
+  font-weight: 200;
+  margin-bottom: 5px;
+  padding-bottom: 0px;
+  padding-left: 20px;
+  text-transform: uppercase;
+  width: 100%;
+}
+#tsg-vevde-timeline .tsg-vev-timeline-ev-item-hidden {
+  border-top: 1px solid #CCC;
+  padding-top: 20px;
+}
+#tsg-vevde-timeline .tsg-vev-timeline-ev-image {
+  background: #FFFFFF;
+  border: 1px solid #BBB;
+  float: none;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+}
+#tsg-vevde-timeline .vev-timeline-ev-desc {
+  float: none;
+  padding: 0px 0px 10px 10px;
+  width: auto;
+}
+/* event link */
+#tsg-vevde-timeline a.tsg-event-moreinfo,
+#tsg-vevde-timeline span.tsg-event-moreinfo {
+  font-size: 12px;
+  float: right;
+  font-weight: 200;
+  letter-spacing: normal;
+  margin: 0px 10px 5px 0px;
+  padding: 0;
+  text-transform: uppercase;
+}
+#tsg-vevde-timeline .timeline-moreinfo-image {
+  height: 14px;
+  width: 14px;
+  float: right;
+}
+#tsg-vevde-timeline span.tsg-alert-soldout {
+  font-size: 12px;
+  line-height: 1.4;
+  float: right;
+  margin: 0px 10px 5px 0px;
+  min-width: 100px;
+  padding: 0px 10px;
+  text-align: center;
+}
+
+
+
+
+/** TSG FEATURES *********************************************************************/
+/** sold-out, on-hold & number of tickets ribbon **/
+/** EVENT LIST ribbon **/
+#tsg-vevde-list .tsg-event-datetime-container .ribbon {
+  position: absolute;
+  left: -5px; top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 100px!important; height: 100px!important;
+  text-align: right;
+}
+/* EVENT LIST - default : green */
+#tsg-vevde-list .tsg-event-datetime-container .ribbon span {
+  font-size: 11px;
+  font-weight: bold;
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 22px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  width: 125px;
+  display: block;
+  background: #79A70A;
+  background: linear-gradient(#9BC90D 0%, #79A70A 100%);
+  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 26px; left: -25px;
+}
+/** TIMELINE ribbon **/
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon {
+  position: absolute;
+  left: -5px; top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 90px!important; height: 90px!important;
+  text-align: right;
+  margin-left: 6px;
+}
+/* TIMELINE - default : green */
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon span {
+  font-size: 9px;
+  font-weight: bold;
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 18px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  width: 90px;
+  display: block;
+  background: #79A70A;
+  background: linear-gradient(#9BC90D 0%, #79A70A 100%);
+  box-shadow: 0 3px 6px -5px rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 17px; left: -18px;
+}
+#tsg-vevde-timeline .tsg-timeline-detail-container.radius .ribbon,
+#tsg-vevde-timeline .tsg-timeline-detail-container.square .ribbon {
+  left: -10px; top: -5px;
+}
+#tsg-vevde-timeline .tsg-timeline-detail-container.radius .ribbon span,
+#tsg-vevde-timeline .tsg-timeline-detail-container.square .ribbon span {
+  width: 100px;
+  top: 20px; left: -20px;
+}
+/** EVENT LIST & TIMELINE ribbons **/
+#tsg-vevde-list .tsg-event-datetime-container .ribbon span::before,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon span::before {
+  content: "";
+  position: absolute; left: 0px; top: 100%;
+  z-index: -1;
+  border-left: 3px solid #79A70A;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #79A70A;
+}
+#tsg-vevde-list .tsg-event-datetime-container .ribbon span::after,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon span::after {
+  content: "";
+  position: absolute; right: 0px; top: 100%;
+  z-index: -1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #79A70A;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #79A70A;
+}
+/* green */
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.green span,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.green span {
+  background: #79A70A;
+  background: linear-gradient(#9BC90D 0%, #79A70A 100%);
+}
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.green span::before,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.green span::before {
+  border-left: 3px solid #79A70A;
+  border-top: 3px solid #79A70A;
+}
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.green span::after,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.green span::after {
+  border-right: 3px solid #79A70A;
+  border-top: 3px solid #79A70A;
+}
+/* red */
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.red span,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.red span {
+  background: #79A70A;
+  background: linear-gradient(#F70505 0%, #8F0808 100%);
+}
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.red span::before,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.red span::before {
+  border-left: 3px solid #8F0808;
+  border-top: 3px solid #8F0808;
+}
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.red span::after,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.red span::after {
+  border-right: 3px solid #8F0808;
+  border-top: 3px solid #8F0808;
+}
+/* orange */
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.orange span,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.orange span {
+  background: #79A70A;
+  background: linear-gradient(#FFBB00 0%, #FF9900 100%);
+}
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.orange span::before,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.orange span::before {
+  border-left: 3px solid #FF9900;
+  border-top: 3px solid #FF9900;
+}
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.orange span::after,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.orange span::after {
+  border-right: 3px solid #FF9900;
+  border-top: 3px solid #FF9900;
+}
+/* gold */
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.gold span,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.gold span {
+  background: #79A70A;
+  background: linear-gradient(#F79E05 0%, #8F5408 100%);
+}
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.gold span::before,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.gold span::before {
+  border-left: 3px solid #8F5408;
+  border-top: 3px solid #8F5408;
+}
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.gold span::after,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.gold span::after {
+  border-right: 3px solid #8F5408;
+  border-top: 3px solid #8F5408;
+}
+/* blue */
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.blue span,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.blue span {
+  background: #79A70A;
+  background: linear-gradient(#05EFF7 0%, #087F8F 100%);
+}
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.blue span::before,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.blue span::before {
+  border-left: 3px solid #087F8F;
+  border-top: 3px solid #087F8F;
+}
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.blue span::after,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.blue span::after {
+  border-right: 3px solid #087F8F;
+  border-top: 3px solid #087F8F;
+}
+/* navy */
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.navy span,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.navy span {
+  background: #79A70A;
+  background: linear-gradient(#2989d8 0%, #1e5799 100%);
+}
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.blue navy::before,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.blue navy::before {
+  border-left: 3px solid #1e5799;
+  border-top: 3px solid #1e5799;
+}
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.navy span::after,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.navy span::after {
+  border-right: 3px solid #1e5799;
+  border-top: 3px solid #1e5799;
+}
+/* silver */
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.silver span,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.silver span {
+  background: #79A70A;
+  background: linear-gradient(#B6BAC9 0%, #808080 100%);
+}
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.silver span::before,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.silver span::before {
+  border-left: 3px solid #808080;
+  border-top: 3px solid #808080;
+}
+#tsg-vevde-list .tsg-event-datetime-container .ribbon.silver span::after,
+#tsg-vevde-timeline .tsg-timeline-detail-container .ribbon.silver span::after {
+  border-right: 3px solid #808080;
+  border-top: 3px solid #808080;
+}
+
+/** if stop reservations or soldout : image filtering option **/
+#tsg-vevde-list .tsg-event-image-container img.stopsales-grayscale,
+#tsg-vevde-list .tsg-event-image-container img.stopsales-greyscale,
+#tsg-vevde-timeline .tsg-vev-timeline-ev-image img.stopsales-grayscale,
+#tsg-vevde-timeline .tsg-vev-timeline-ev-image img.stopsales-greyscale {
+  -webkit-filter: grayscale(90%);
+          filter: grayscale(90%);
+}
+#tsg-vevde-list .tsg-event-image-container img.stopsales-blur,
+#tsg-vevde-timeline .tsg-vev-timeline-ev-image img.stopsales-blur {
+  margin: 2px -1px 2px;
+  -webkit-filter: blur(2px) grayscale(70%);
+          filter: blur(2px) grayscale(70%);
+}
+#tsg-vevde-list .tsg-event-image-container img.stopsales-opacity,
+#tsg-vevde-timeline .tsg-vev-timeline-ev-image img.stopsales-opacity {
+  -webkit-filter: opacity(30%);
+          filter: opacity(30%);
+}
+#tsg-vevde-list .tsg-event-image-container img.stopsales-sepia,
+#tsg-vevde-timeline .tsg-vev-timeline-ev-image img.stopsales-sepia {
+  -webkit-filter: sepia(100%);
+          filter: sepia(100%);
+}
+
+#tsg-vevde-list .inlineEventAdvert {
+  margin-bottom: 20px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+
+/** DEFAULT RESETS, OVERRIDES & UTILITIES*********************************************/
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+	text-decoration:none!important;
+}
+a.btn {
+	text-align:center;
+}
+#tsg-vevde-timeline .tsg-text-truncate,
+#tsg-vevde-list .tsg-text-truncate { /* truncate text at single line */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+#tsg-vevde-list .tsg-text-truncate-2 { /* truncate text at 2 lines */
+	display:block;
+	display:-webkit-box;
+	max-width:auto;
+	padding:0;
+	position:relative;
+	-webkit-line-clamp:2;
+	-webkit-box-orient:vertical;
+	height:calc(1.1em * 1 * 2);
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+#tsg-vevde-list .tsg-text-truncate-3 { /* truncate text at 3 lines */
+	display:block;
+	display:-webkit-box;
+	max-width:auto;
+	position:relative;
+	padding:0;
+	-webkit-line-clamp:3;
+	-webkit-box-orient:vertical;
+	height:calc(1.1em * 1 * 3);
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+#tsg-vevde-timeline .tsg-event-title-truncate-2,
+#tsg-vevde-list .tsg-event-title-truncate-2 { /* truncate event title at 2 lines */
+	display:block;
+	display:-webkit-box;
+	max-width:auto;
+	padding:0;
+	position:relative;
+	-webkit-line-clamp:2;
+	-webkit-box-orient:vertical;
+	height:calc(1.2em * 1 * 2);
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+#tsg-vevde-timeline .tsg-event-title-truncate-2 { /* truncate event timeline title at 2 lines */
+	display:block;
+	display:-webkit-box;
+	max-width:auto;
+	padding:0;
+	position:relative;
+	-webkit-line-clamp:2;
+	-webkit-box-orient:vertical;
+	height:calc(1.1em * 1 * 2);
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+#tsg-vevde-list .tsg-smalldesc-truncate-3 { /* truncate small-description at 3 lines */
+	display:block;
+	display:-webkit-box;
+	max-width:auto;
+	position:relative;
+	padding:0;
+	-webkit-line-clamp:3;
+	-webkit-box-orient:vertical;
+	height:calc(1.1em * 1 * 3);
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+#tsg-vevde-list .tsg-smalldesc-truncate-4 { /* truncate small-description at 4 lines */
+	display:block;
+	display:-webkit-box;
+	max-width:auto;
+	position:relative;
+	padding:0;
+	-webkit-line-clamp:4;
+	-webkit-box-orient:vertical;
+	height:calc(1.1em * 1 * 4);
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+#tsg-vevde-list .tsg-smalldesc-truncate-5 { /* truncate small-description at 5 lines */
+	display:block;
+	display:-webkit-box;
+	max-width:auto;
+	position:relative;
+	padding:0;
+	-webkit-line-clamp:5;
+	-webkit-box-orient:vertical;
+	height:calc(1.1em * 1 * 5);
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+#tsg-vevde-list .tsg-smalldesc-truncate-6 { /* truncate small-description at 6 lines */
+	display:block;
+	display:-webkit-box;
+	max-width:auto;
+	position:relative;
+	padding:0;
+	-webkit-line-clamp:6;
+	-webkit-box-orient:vertical;
+	height:calc(1.2em * 1 * 6);
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
