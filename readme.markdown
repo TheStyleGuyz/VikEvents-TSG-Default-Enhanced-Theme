@@ -23,7 +23,7 @@ The tsg-default-enhanced theme includes it's own custom language file(s) and cas
 ---
 ### What Do I Do With It Now?
 _Download, install and give it a try of course...!_
-Please read the complete theme installation information and feature setup documentation in the wiki **before** proceeding
+Please read the complete theme installation information and feature setup [documentation in the wiki](https://github.com/TheStyleGuyz/VikEvents-TSG-Default-Enhanced-Theme/wiki) **before** proceeding
 
 
 > _Use of this theme is at your own risk and discretion, we strongly advise installing within a test environment prior to use on any production website. Before installing on any production website, ensure you have a valid, restoable backup of your current production site_
