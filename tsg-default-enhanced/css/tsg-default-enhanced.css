@@ -3,7 +3,7 @@
  * description  A simple responsive redesign and build replicating the orignal default
  * description  event layout utilising the installed framework default styling and layout
  * compat       Twitter Bootstrap v2.3.2, Twitter BootStrap v3.3.7
- * compat       YooTheme UIKit v2.26.4, JoomlaBamboo ZenGrid
+ * compat       YooTheme UIKit v2.26.4, UIKit v3 (Beta), JoomlaBamboo ZenGrid
  * author       RussW (TheStyleGuyz, a division of hotmango, web and print. Australia.)
  * copyright    Copyright (c) 2016, The Style Guyz. All rights reserved.
  * @license     Dual GNU/GPL2 & TSG:PL1 - Proprietary License
@@ -35,13 +35,18 @@
   border-bottom: 1px solid #DDD;
   border-right: 1px solid #DDD;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   margin-bottom: 10px !important;
   padding: 10px !important;
   -webkit-transition: all 0.4s ease-in-out;
      -moz-transition: all 0.4s ease-in-out;
        -o-transition: all 0.4s ease-in-out;
           transition: all 0.4s ease-in-out;
+}
+@media( max-width: 1024px) {
+  #tsg-vevde-list .tsg-event-row-container {
+    flex-wrap: wrap;
+  }
 }
 #tsg-vevde-list .tsg-event-row-container,
 #tsg-vevde-list .tsg-event-row-container.square {
@@ -72,7 +77,7 @@
 }
 #tsg-vevde-list .tsg-event-image-container {}
 #tsg-vevde-list .tsg-event-detail-container {
-  padding: 5px;
+  padding: 5px 10px;
 }
 
 

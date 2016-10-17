@@ -4,7 +4,7 @@
  * description  A simple responsive redesign and build replicating the orignal default
  * description  event layout utilising the installed framework default styling and layout
  * compat       Twitter Bootstrap v2.3.2, Twitter BootStrap v3.3.7
- * compat       YooTheme UIKit v2.26.4, JoomlaBamboo ZenGrid
+ * compat       YooTheme UIKit v2.26.4, UIKit v3 (Beta), JoomlaBamboo ZenGrid
  * author       RussW (TheStyleGuyz, a division of hotmango, web and print. Australia.)
  * copyright    Copyright (c) 2016, The Style Guyz. All rights reserved.
  * @license     Dual GNU/GPL2 & TSG:PL1 - Proprietary License
@@ -58,6 +58,21 @@ defined('_JEXEC') OR die('Restricted Area');
    ***********************************************************************************/
    include_once('components/com_vikevents/themes/tsg-default-enhanced/themesetup.php');
   /** END USER CONFIGURABLE OPTIONS **************************************************/
+
+   // UIKITFIX(@russw) : is it a YOOTheme Warp(UIKit2) or Pro(UIKit3) template
+   $app           = JFactory::getApplication();
+   $isYOOWarp     = JPATH_SITE.'/templates/'.$app->getTemplate().'/warp.php';
+   $isYOOPro      = JPATH_SITE.'/templates/'.$app->getTemplate().'/templates/';
+   if (file_exists($isYOOWarp)):
+     $isYOOTheme  = 'YOOWarp';
+     $rowLayout   = '';
+   elseif (file_exists($isYOOPro)):
+     $isYOOTheme  = 'YOOPro';
+     $rowLayout   = '';
+   else:
+     $isYOOTheme  = '0';
+     $rowLayout   = 'row-fluid';
+   endif;
 ?>
 
 
@@ -146,10 +161,10 @@ defined('_JEXEC') OR die('Restricted Area');
         ?>
 
             <!-- event date - row container -->
-            <div class="row-fluid uk-grid uk-margin-remove zg-container tsg-timeline-container clearfix">
+            <div class="<?php $rowLayout; ?> uk-grid uk-margin-remove zg-container tsg-timeline-container clearfix">
 
               <!-- event date column -->
-              <div class="span2 col-md-2 uk-width-medium-1-6 zg-col zg-col-2 tsg-timeline-date-column clearfix">
+              <div class="span2 col-md-2 uk-width-medium-1-6 uk-width-1-6@m zg-col zg-col-2 tsg-timeline-date-column clearfix">
 
                 <div class="vev-timeline-ev-mday tsg-vev-timeline-ev-mday clearfix" id="vevtmday_<?php echo $my.$mday; ?>">
                   <div class="vev-timeline-ev-mday-inner tsg-vev-timeline-ev-mday-inner <?php if ($eventPast == '1'): echo 'pastEvent'; endif; ?> <?php echo $eventDateShape; ?>">
@@ -170,7 +185,7 @@ defined('_JEXEC') OR die('Restricted Area');
               </div> <!-- /event date column -->
 
               <!-- event details column -->
-              <div class="span10 col-md-10 uk-width-medium-5-6 zg-col zg-col-10 tsg-timline-detail-column clearfix">
+              <div class="span10 col-md-10 uk-width-medium-5-6 uk-width-5-6@m zg-col zg-col-10 tsg-timline-detail-column clearfix">
 
     			      <?php foreach ($evs as $k => $ev): //rotate through events ?>
 
@@ -293,7 +308,7 @@ defined('_JEXEC') OR die('Restricted Area');
     						      <div class="vev-timeline-ev-item-hidden tsg-vev-timeline-ev-item-hidden">
 
                         <!-- responsive grid -->
-                        <div class="row-fluid uk-grid zg-container clearfix">
+                        <div class="<?php $rowLayout; ?> uk-grid zg-container clearfix">
 
                           <!-- show event image (or placehoder) -->
                           <div class="span4 col-md-4 uk-width-1-3 zg-col zg-col-4">

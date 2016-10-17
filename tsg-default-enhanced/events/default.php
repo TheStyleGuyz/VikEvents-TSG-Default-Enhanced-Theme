@@ -4,7 +4,7 @@
  * description  A simple responsive redesign and build replicating the orignal default
  * description  event layout utilising the installed framework default styling and layout
  * compat       Twitter Bootstrap v2.3.2, Twitter BootStrap v3.3.7
- * compat       YooTheme UIKit v2.26.4, JoomlaBamboo ZenGrid
+ * compat       YooTheme UIKit v2.26.4, UIKit v3 (Beta), JoomlaBamboo ZenGrid
  * author       RussW (TheStyleGuyz, a division of hotmango, web and print. Australia.)
  * copyright    Copyright (c) 2016, The Style Guyz. All rights reserved.
  * @license     Dual GNU/GPL2 & TSG:PL1 - Proprietary License
@@ -45,6 +45,20 @@ defined('_JEXEC') OR die('Restricted Area');
    include_once('components/com_vikevents/themes/tsg-default-enhanced/themesetup.php');
   /** END USER CONFIGURABLE OPTIONS **************************************************/
 
+   // UIKITFIX(@russw) : is it a YOOTheme Warp(UIKit2) or Pro(UIKit3) template
+   $app           = JFactory::getApplication();
+   $isYOOWarp     = JPATH_SITE.'/templates/'.$app->getTemplate().'/warp.php';
+   $isYOOPro      = JPATH_SITE.'/templates/'.$app->getTemplate().'/templates/';
+   if (file_exists($isYOOWarp)):
+     $isYOOTheme  = 'YOOWarp';
+     $rowLayout   = '';
+   elseif (file_exists($isYOOPro)):
+     $isYOOTheme  = 'YOOPro';
+     $rowLayout   = '';
+   else:
+     $isYOOTheme  = '0';
+     $rowLayout   = 'row-fluid';
+   endif;
 
   function cmp($rows, $b) { // sort the array by-date, even if the event date(s) have been edited/modified later
     if ($rows['tsinit'] == $b['tsinit']):
@@ -125,11 +139,11 @@ jQuery(".vevmodal").fancybox({
         ?>
 <?php //'<pre>'. var_dump($r) .'</pre>'; ?>
         <!-- event row, container -->
-        <div class="row-fluid uk-grid uk-margin-remove zg-container tsg-event-container clearfix">
+        <div class="<?php $rowLayout; ?> uk-grid uk-margin-remove zg-container tsg-event-container clearfix">
           <!-- single event flex container -->
-          <div class="span12 uk-width-1-1 tsg-event-row-container <?php echo $eventDetailShape; ?>">
+          <div class="span12 uk-width-1-1 uk-width-1-1 tsg-event-row-container <?php echo $eventDetailShape; ?>">
 
-            <div class="span2 col-md-2 uk-width-medium-1-6 zg-col zg-col-2 tsg-event-datetime-column clearfix">
+            <div class="span2 col-md-2 uk-width-medium-1-6 uk-width-1-6@m uk-margin-remove zg-col zg-col-2 tsg-event-datetime-column clearfix">
 
               <!-- event date & time -->
               <div class="tsg-event-datetime-container">
@@ -259,7 +273,7 @@ jQuery(".vevmodal").fancybox({
             </div> <!-- span2 column -->
 
 
-            <div class="span4 col-md-4 uk-width-medium-2-6 zg-col zg-col-4 tsg-event-image-column clearfix">
+            <div class="span4 col-md-4 uk-width-medium-2-6 uk-width-1-3@m zg-col zg-col-4 tsg-event-image-column clearfix">
 
               <!-- event image container -->
               <div class="tsg-event-image-container">
@@ -287,7 +301,7 @@ jQuery(".vevmodal").fancybox({
             </div> <!-- /span4 column -->
 
 
-            <div class="span6 col-md-6 uk-width-medium-1-2 zg-col zg-col-6 tsg-event-detail-column clearfix">
+            <div class="span6 col-md-6 uk-width-medium-1-2 uk-width-1-2@m uk-margin-remove zg-col zg-col-6 tsg-event-detail-column clearfix">
 
               <!-- event detail container -->
               <div class="tsg-event-detail-container <?php if ($soldOut == '1' OR $stopRes == '1'): echo 'muted'; endif; ?>">
